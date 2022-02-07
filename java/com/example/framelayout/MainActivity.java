@@ -4,34 +4,32 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity implements OnClickListener {
-    ImageView i1,i2;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    ImageView image1, image2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        i1=(ImageView)findViewById(R.id.birthday);
-        i2=(ImageView)findViewById(R.id.second);
-        i1.setOnClickListener(this);
-        i2.setOnClickListener(this);
 
+        image1 = (ImageView) findViewById(R.id.image1);
+        image2 = (ImageView) findViewById(R.id.image2);
+
+        image1.setOnClickListener(this);
+        image2.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if(v.getId()==R.id.birthday)
-        {
-            i1.setVisibility(View.GONE);
-            i2.setVisibility(View.VISIBLE);
-        }
-        else
-        {
-            i1.setVisibility(View.VISIBLE);
-            i2.setVisibility(View.GONE);
+        if(v.getId() == R.id.image1) {
+            image1.setVisibility(v.GONE);
+            image2.setVisibility(v.VISIBLE);
+        } else {
+            image1.setVisibility(v.VISIBLE);
+            image2.setVisibility(v.GONE);
         }
     }
 }
